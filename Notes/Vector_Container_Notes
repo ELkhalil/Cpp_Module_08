@@ -1,0 +1,163 @@
+**Vector:**
+
+A `vector` is a dynamic array that automatically resizes itself when it needs more space to store elements. It provides efficient random access to elements, similar to arrays, while also offering dynamic memory management.
+
+**Important Points about Vector:**
+
+1. **Declaration and Initialization:**
+   
+   You include the `<vector>` header and declare a vector using its template. Here's an example:
+
+   ```cpp
+   #include <vector>
+   // ...
+   std::vector<int> myVector; // Declaration
+   std::vector<int> anotherVector(5); // Initialization with 5 elements
+   ```
+
+2. **Adding Elements:**
+
+   You can add elements to a vector using the `push_back()` method:
+
+   ```cpp
+   myVector.push_back(10);
+   myVector.push_back(20);
+   ```
+
+3. **Accessing Elements:**
+
+   Elements in a vector are accessed using the subscript operator `[]`:
+
+   ```cpp
+   int element = myVector[0]; // Access first element
+   ```
+
+4. **Size and Capacity:**
+
+   The `size()` function returns the number of elements in the vector, and `capacity()` returns the amount of memory allocated for the vector.
+
+   ```cpp
+   int numElements = myVector.size();
+   int maxCapacity = myVector.capacity();
+   ```
+
+5. **Iterating Over Elements:**
+
+   You can use iterators to traverse through a vector:
+
+   ```cpp
+   for (std::vector<int>::iterator it = myVector.begin(); it != myVector.end(); ++it) {
+       int element = *it;
+       // Do something with 'element'
+   }
+   ```
+
+**Example:**
+
+Here's a simple example of using a vector to store and manipulate integers:
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers;
+
+    numbers.push_back(10);
+    numbers.push_back(20);
+    numbers.push_back(30);
+
+    std::cout << "Size of vector: " << numbers.size() << std::endl;
+
+    for (std::vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+In this example, we declare a vector of integers, add elements to it, display the size of the vector, and then iterate through the vector using iterators to print the elements.
+
+Practice by modifying and experimenting with this example to deepen your understanding of how vectors work in C++98.
+
+there are a few more aspects you might want to be aware of:
+
+**Inserting and Erasing Elements:**
+
+You can insert elements at specific positions using the `insert()` function and erase elements using the `erase()` function. These functions take iterators as arguments.
+
+```cpp
+std::vector<int> myVector;
+myVector.push_back(10);
+myVector.push_back(20);
+myVector.insert(myVector.begin() + 1, 15); // Inserts 15 at index 1
+myVector.erase(myVector.begin() + 1);     // Removes element at index 1
+```
+
+**Reserving Memory:**
+
+You can use the `reserve()` function to allocate memory for a certain number of elements in advance. This can be useful if you know how many elements you'll be adding to the vector to reduce memory reallocations.
+
+```cpp
+std::vector<int> myVector;
+myVector.reserve(100); // Reserve memory for 100 elements
+```
+
+**Memory Reallocation:**
+
+Vectors automatically manage memory for you, but it's good to know that when the vector's capacity is exceeded, it reallocates memory to accommodate new elements. This might involve copying elements to a new memory location. However, you don't need to worry about this process; the vector handles it transparently.
+
+**Complexity:**
+
+In C++98, vector operations generally have the following complexity:
+- Random access (using `[]`): O(1)
+- Insertion or deletion at the end (using `push_back()`, `pop_back()`): Amortized O(1)
+- Insertion or deletion at a specific position (using `insert()`, `erase()`): O(n)
+- Memory reallocation (when capacity is exceeded): O(n)
+
+Understanding these additional points will give you a more complete picture of how to effectively use `vector`. Remember that these concepts lay the foundation for working with more complex data structures and algorithms provided by the Standard Template Library.
+
+The powerful features of C++ and the Standard Template Library (STL) is that you can use containers like `vector` to store elements of almost any type, including user-defined complex classes.
+
+Here's how you can use a `vector` to store instances of a user-defined class:
+
+```cpp
+#include <iostream>
+#include <vector>
+
+class Person {
+public:
+    Person(std::string name, int age) : name(name), age(age) {}
+
+    std::string getName() const {
+        return name;
+    }
+
+    int getAge() const {
+        return age;
+    }
+
+private:
+    std::string name;
+    int age;
+};
+
+int main() {
+    std::vector<Person> people;
+    
+    people.push_back(Person("Alice", 25));
+    people.push_back(Person("Bob", 30));
+    
+    for (std::vector<Person>::iterator it = people.begin(); it != people.end(); ++it) {
+        std::cout << "Name: " << it->getName() << ", Age: " << it->getAge() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+In this example, we're using a `vector` to store instances of the `Person` class, which is a user-defined complex class. The `vector` holds `Person` objects just as easily as it would hold integers or other basic types.
+
+The key takeaway is that you can use the same container, like `vector`, with various data types, including built-in types, user-defined classes, and even other STL containers. This generic behavior is made possible by C++ templates and the STL's design.

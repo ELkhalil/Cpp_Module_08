@@ -1,0 +1,77 @@
+The `map` container in the C++ Standard Template Library (STL). The `map` is a container that stores a collection of key-value pairs, where each key is unique and associated with a value. It's often used to create a dictionary-like data structure where you can quickly look up values based on their associated keys.
+
+**Map:**
+
+A `map` is implemented as a balanced binary search tree, similar to the `set`. Each key-value pair is stored as a node in the tree. This structure allows for efficient insertion, deletion, and search operations based on the keys.
+
+**Important Points about Map:**
+
+1. **Declaration and Initialization:**
+
+   You include the `<map>` header and declare a `map` using its template. Here's an example:
+
+   ```cpp
+   #include <map>
+   // ...
+   std::map<std::string, int> ageMap; // Declaration
+   ```
+
+2. **Adding Key-Value Pairs:**
+
+   You can add key-value pairs to a `map` using the `insert()` method:
+
+   ```cpp
+   ageMap.insert(std::make_pair("Alice", 25));
+   ageMap.insert(std::make_pair("Bob", 30));
+   ```
+
+3. **Accessing Values:**
+
+   You can access the value associated with a key using the subscript operator `[]` or the `find()` function:
+
+   ```cpp
+   int aliceAge = ageMap["Alice"]; // Using []
+   
+   std::map<std::string, int>::iterator found = ageMap.find("Bob"); // Using find()
+   if (found != ageMap.end()) {
+       int bobAge = found->second;
+   }
+   ```
+
+4. **Iterating Over Key-Value Pairs:**
+
+   Iterating over a `map` allows you to access both the keys and values:
+
+   ```cpp
+   for (std::map<std::string, int>::iterator it = ageMap.begin(); it != ageMap.end(); ++it) {
+       std::string name = it->first;
+       int age = it->second;
+       // Do something with 'name' and 'age'
+   }
+   ```
+
+**Example:**
+
+Here's a simple example of using a `map` to store and manipulate key-value pairs:
+
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, int> ageMap;
+
+    ageMap.insert(std::make_pair("Alice", 25));
+    ageMap.insert(std::make_pair("Bob", 30));
+
+    for (std::map<std::string, int>::iterator it = ageMap.begin(); it != ageMap.end(); ++it) {
+        std::cout << "Name: " << it->first << ", Age: " << it->second << std::endl;
+    }
+
+    return 0;
+}
+```
+
+In this example, we declare a `map` of strings (names) to integers (ages), insert key-value pairs into it, and then iterate through the map using iterators to print the keys and values.
+
+Practice by modifying and experimenting with this example to deepen your understanding of how `map` works in C++98.

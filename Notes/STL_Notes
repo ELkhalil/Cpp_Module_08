@@ -1,0 +1,94 @@
+What is STL:
+-------------
+in C++98! The STL is a powerful collection of pre-built classes and functions 
+that provide common data structures and algorithms. It can significantly simplify 
+and speed up your coding tasks
+
+The STL is divided into several components: algorithms, containers, and iterators. Let's go through each of these step by step:
+
+Absolutely, here are the key points you should know about the Standard Template Library (STL) for your exam:
+
+**Containers:**
+
+1. **Vector:** A dynamic array that resizes itself as needed. Elements are stored in contiguous memory locations, making access efficient.
+
+2. **List:** A doubly-linked list where each element has pointers to the next and previous elements. Good for efficient insertions and deletions.
+
+3. **Deque:** A double-ended queue that uses chunks of memory to store elements, allowing for efficient insertion and deletion at both ends.
+
+4. **Set / Multiset:** Containers that store unique elements in sorted order. Multisets allow duplicates.
+
+5. **Map / Multimap:** Containers that store key-value pairs in sorted order based on keys. Multimaps allow duplicate keys.
+
+**Iterators:**
+
+1. **Begin() / End():** Functions that provide iterators pointing to the first and one-past-last elements of a container.
+
+2. **Iterator:** Used to traverse a container's elements. Can move forward but not backward. Can be used for modification.
+
+3. **Const_iterator:** Similar to an iterator, but elements cannot be modified using a const_iterator.
+
+**Algorithms:**
+
+1. **Sort():** Algorithm for sorting elements in a range. Uses a comparison function to determine order.
+
+2. **Find():** Searches for a value within a range and returns an iterator pointing to the found element or end() if not found.
+
+3. **For_each():** Applies a function to each element in a range.
+
+**Memory Management:**
+
+1. Containers manage memory allocation and deallocation automatically, growing or shrinking as needed.
+
+2. Containers ensure elements are stored efficiently and consistently, maintaining contiguous memory in vectors.
+
+**Balanced Binary Search Trees:**
+
+1. Sets, multisets, maps, and multimaps are often implemented using balanced binary search trees (e.g., Red-Black Trees).
+
+**Abstraction and Reusability:**
+
+1. STL components offer high-level abstractions for common data structures and algorithms, promoting code reusability.
+
+2. STL components are generic, designed to work with different data types. Templates enable this flexibility.
+
+**Performance Considerations:**
+1. Choose containers and algorithms based on performance needs: vector for fast random access, list for frequent insertions/deletions, etc.
+
+2. Understand time complexity of algorithms (e.g., sorting, searching) to choose appropriate solutions for your use case.
+
+These points cover the fundamental aspects of the STL that you need to know for your exam. Remember to review and practice with code examples to solidify your understanding. Good luck with your exam!
+
+Key Principles:
+-----------------
+
+Containers:
+    are data structure that store collection of elements...
+
+Algorithms:
+    perform operations upon collections of elements
+    notice that i did not say that it perform operations on containers because
+    we can have a collection of elements that are not in a container, like 
+    reading from stream, we can abstract this as a collection of elements without being a container.
+
+Container and Algrorithms are entirely independent...(Containers don't know anything about Algorithms and vice verca..)
+
+Iterators:
+    provide a commun unit of information exchange between container and algorithms
+    -> it is what allows algorithms to use data stored inside containers
+    -> it makes it possible for containers to provide it's data to algorithms.
+
+Sequence Containers:
+----------------------
+-> they are containers that we can observe or change their order of elements.
+    -> vector | deque | list
+Associative containers:
+------------------------
+-> they have an ordering and they manageit internally
+    -> map | set | multimap | multiset
+container adaptors:
+------------------------
+queue | stack | priority_queue
+
+why we need to use an iterrtior to iterate:
+    u wont because now days we already have a range based for loop....
