@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:42:44 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/08/27 15:51:00 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:49:38 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
     using std::stack<T, Container>::c;
 
-     /* Default iterators */
+    /* Default iterators */
     iterator begin() 
     {
         return c.begin();
@@ -34,7 +34,7 @@ public:
     {
         return c.end();
     }
-    
+
     /* Const iterators*/
     const_iterator begin() const 
     {
