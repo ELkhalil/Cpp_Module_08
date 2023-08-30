@@ -6,12 +6,12 @@
 #    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/22 20:30:12 by aelkhali          #+#    #+#              #
-#    Updated: 2023/08/22 20:31:18 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/08/27 15:42:26 by aelkhali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Output Program Name
-NAME = 
+NAME = MutatedAbominatio
 
 # Colors :
 GREEN = \033[0;32m
