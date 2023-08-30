@@ -6,17 +6,18 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:51:14 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/08/30 13:20:59 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:01:17 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
+#include <algorithm>
 #include <stack>
 #include <vector>
 #include <list>
 
-void testingDefaultContainerDeque( void )
+void    testingDefaultContainerDeque( void )
 {
     MutantStack<int> mutantStack;
 
@@ -30,7 +31,7 @@ void testingDefaultContainerDeque( void )
     std::cout << std::endl;
 }
 
-void testingExplicitContainer( void )
+void    testingExplicitContainer( void )
 {
     MutantStack<int, std::vector<int> > stackVector;
 
@@ -46,62 +47,57 @@ void testingExplicitContainer( void )
     std::cout << std::endl;
 }
 
-int main()
+void    subjectTest( void )
 {
-    // Using your MutantStack
     MutantStack<int> mstack;
+
     mstack.push(5);
     mstack.push(17);
+
     std::cout << mstack.top() << std::endl;
     mstack.pop();
     std::cout << mstack.size() << std::endl;
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
-    //[...]
+    mstack.push(111);
+    mstack.push(64);
     mstack.push(0);
+
+    // init iterators
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
+
+    MutantStack<int>::iterator recall = it;
+    
+    // testing increment and decrement of iterators
     ++it;
     --it;
+
     while (it != ite)
     {
         std::cout << *it << std::endl;
         ++it;
     }
-    std::stack<int> s(mstack);
 
-    std::cout << "------------------" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    std::cout << "Sorting the stack" << std::endl;
 
-    // Using std::list
-    std::list<int> lstack;
-    lstack.push_back(5);
-    lstack.push_back(17);
-    std::cout << lstack.back() << std::endl;
-    lstack.pop_back();
-    std::cout << lstack.size() << std::endl;
-    lstack.push_back(3);
-    lstack.push_back(5);
-    lstack.push_back(737);
-    //[...]
-    lstack.push_back(0);
-    std::list<int>::iterator lit = lstack.begin();
-    std::list<int>::iterator lite = lstack.end();
-    ++lit;
-    --lit;
-    while (lit != lite)
+    MutantStack<int>::iterator tmp = recall;
+    /* using constructor to create a new struct */
+    sort(tmp, ite);
+
+    while(recall != ite)
     {
-        std::cout << *lit << std::endl;
-        ++lit;
+        std::cout << *recall << std::endl;
+        recall++;
     }
+}
 
-    // Manually copy elements from std::list to std::stack
-    std::stack<int> s2;
-    while (!lstack.empty())
-    {
-        s2.push(lstack.front());
-        lstack.pop_front();
-    }
-
+int main()
+{
+    subjectTest();
+    testingDefaultContainerDeque();
+    testingExplicitContainer();
     return 0;
 }
